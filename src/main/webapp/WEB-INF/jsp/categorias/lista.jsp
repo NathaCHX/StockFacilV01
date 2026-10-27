@@ -13,6 +13,12 @@
     <a class="btn btn-primary" href="categorias?accion=nuevo">Nueva categoría</a>
 </div>
 <table class="table table-striped bg-white">
+    <form method="get" action="categorias" class="d-flex gap-2 mb-3" style="max-width: 480px">
+        <input class="form-control" name="buscar" placeholder="Buscar por nombre" value="<c:out value= '${param.buscar}'/>">
+        <button class="btn btn-outline-primary">Buscar</button>
+        <a class="btn btn-link" href="categorias">Limpiar</a>
+    </form>
+        
     <thead>
         <tr><th>Nombre</th><th>Descripción</th><th>Estado</th><th></th></tr>
     </thead>
@@ -36,6 +42,12 @@
                 </td>
             </tr>
         </c:forEach>
+        <c:if test="${empty categorias}">
+                    <tr> <td colspan="4" class="text-muted">
+                No hay categorias que coincidan con la busqueda
+                </td>
+            </tr>
+        </c:if>
     </tbody>
 </table>
 <%@ include file="../comun/pie.jsp" %>
