@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.stockfacil.model;
 
 /**
@@ -9,6 +6,7 @@ package com.stockfacil.model;
  * @author natha
  */
 public class Proveedor {
+
     private int idProveedor;
     private String nombre;
     private String cedulaJuridica;
@@ -24,15 +22,15 @@ public class Proveedor {
         return nombre;
     }
 
-    public String getcedulaJuridica() {
+    public String getCedulaJuridica() {
         return cedulaJuridica;
     }
-    
-    public String gettelefono() {
+
+    public String getTelefono() {
         return telefono;
     }
-    
-    public String getcorreo() {
+
+    public String getCorreo() {
         return correo;
     }
 
@@ -48,15 +46,15 @@ public class Proveedor {
         this.nombre = nombre;
     }
 
-    public void setcedulaJuridica(String cedulaJuridica) {
+    public void setCedulaJuridica(String cedulaJuridica) {
         this.cedulaJuridica = cedulaJuridica;
     }
-    
-    public void setcorreo(String correo) {
+
+    public void setCorreo(String correo) {
         this.correo = correo;
     }
-    
-    public void telefono(String telefono) {
+
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
