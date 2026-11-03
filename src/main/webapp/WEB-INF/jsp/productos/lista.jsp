@@ -38,6 +38,3 @@
     </tbody>
 </table>
 <%@ include file="../comun/pie.jsp" %>
-Oracle Java Technologies | Oracle
-Java can help reduce costs, drive innovation, & improve application services; the #1 programming language for IoT, enterprise architecture, and cloud computing.
-

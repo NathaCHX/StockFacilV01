@@ -34,6 +34,5 @@
     </c:forEach>
     </tbody>
 </table>
-
 <%@ include file="../comun/pie.jsp" %>
 
