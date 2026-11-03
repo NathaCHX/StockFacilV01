@@ -24,20 +24,15 @@ public class CategoriaDAO {
         }
         return lista;
     }
-    
-    public List<Categoria> buscar(String texto) throws SQLException
-    {
+
+    public List<Categoria> buscar(String texto) throws SQLException {
         String sql = "SELECT * FROM categoria Where nombre LIKE ? ORDER BY nombre";
-        List <Categoria> lista = new ArrayList<>();
-        
-        try (Connection con = Conexion.obtener();
-                PreparedStatement ps = con.prepareStatement(sql))
-        {
+        List<Categoria> lista = new ArrayList<>();
+
+        try (Connection con = Conexion.obtener(); PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, "%" + texto + "%");
-            try (ResultSet rs = ps.executeQuery())
-            {
-                while (rs.next())
-                {
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
                     lista.add(mapear(rs));
                 }
             }

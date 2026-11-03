@@ -1,4 +1,3 @@
-
 package com.stockfacil.model;
 
 /**
@@ -6,6 +5,7 @@ package com.stockfacil.model;
  * @author natha
  */
 public class Categoria {
+
     private int idCategoria;
     private String nombre;
     private String descripcion;
@@ -42,7 +42,6 @@ public class Categoria {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-    
-    
-            
+
+
 }

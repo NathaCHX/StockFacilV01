@@ -1,4 +1,3 @@
-
 package com.stockfacil.controller;
 
 import com.stockfacil.dao.ProveedorDAO;
