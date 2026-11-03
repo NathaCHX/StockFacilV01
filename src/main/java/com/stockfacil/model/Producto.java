@@ -16,6 +16,10 @@ public class Producto {
     private int stock;
     private int stockMinimo;
     private boolean activo = true;
+    
+    public boolean isStockBajo() {
+        return stock <= stockMinimo; 
+    }
 
     public int getIdProducto() {
         return idProducto;
