@@ -10,14 +10,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author natha
- */
 public class ProductoDAO {
 
-    private static final String SELECT_BASE = "SELECT p.*, c.nombre as nombre_categoria"
-            + "FROM producto p INNER JOIN categoria c ON c.id_categoria = p.id_categoria";
+    private static final String SELECT_BASE
+            = "SELECT p.*, c.nombre AS nombre_categoria "
+            + "FROM producto p JOIN categoria c ON c.id_categoria = p.id_categoria ";
 
     public List<Producto> listar() throws SQLException {
         String sql = SELECT_BASE + "ORDER BY p.nombre";
