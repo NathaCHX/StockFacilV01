@@ -46,22 +46,15 @@ public class ProductoDAO {
             ps.setString(1, codigo);
             ps.setInt(2, idExcluir);
             try (ResultSet rs = ps.executeQuery()) {
-
                 rs.next();
-
                 return rs.getInt(1) > 0;
-
             }
-
         }
-
     }
 
     public void insertar(Producto p) throws SQLException {
-
         String sql = "INSERT INTO producto (codigo, nombre, id_categoria, precio, stock_minimo) "
                 + "VALUES (?, ?, ?, ?, ?)";
-
         try (Connection con = Conexion.obtener(); PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, p.getCodigo());
             ps.setString(2, p.getNombre());
@@ -69,9 +62,7 @@ public class ProductoDAO {
             ps.setBigDecimal(4, p.getPrecio());
             ps.setInt(5, p.getStockMinimo());
             ps.executeUpdate();
-
         }
-
     }
 
     public void actualizar(Producto p) throws SQLException {
@@ -87,9 +78,7 @@ public class ProductoDAO {
             ps.setBoolean(6, p.isActivo());
             ps.setInt(7, p.getIdProducto());
             ps.executeUpdate();
-
         }
-
     }
 
     public void desactivar(int id) throws SQLException {
@@ -98,9 +87,7 @@ public class ProductoDAO {
         try (Connection con = Conexion.obtener(); PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.executeUpdate();
-
         }
-
     }
 
     private Producto mapear(ResultSet rs) throws SQLException {
