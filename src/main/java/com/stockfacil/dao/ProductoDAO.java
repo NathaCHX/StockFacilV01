@@ -26,6 +26,20 @@ public class ProductoDAO {
         }
         return lista;
     }
+    
+    public List<Producto> listarActivos() throws SQLException{
+        String sql = SELECT_BASE + "WHERE P.ACTIVO = 1 ORDER BY P.NOMBRE";
+        List<Producto> lista = new ArrayList<>();
+        
+        try (Connection con = Conexion.obtener();
+                PreparedStatement ps = con.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()){
+            while (rs.next()){
+                lista.add(mapear(rs));
+            }
+        }
+        return lista;
+    }
 
     public Producto buscarPorId(int id) throws SQLException {
         String sql = SELECT_BASE + "WHERE p.id_producto = ?";
