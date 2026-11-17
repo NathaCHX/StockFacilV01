@@ -23,6 +23,7 @@ import java.util.List;
  */
 @WebServlet("/proveedores")
 
+/*** @author natha*/
 public class ProveedorServlet extends HttpServlet {
 
     private final ProveedorDAO dao = new ProveedorDAO();

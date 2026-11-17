@@ -1,10 +1,7 @@
 
 package com.stockfacil.model;
 
-/**
- *
- * @author natha
- */
+/*** @author natha*/
 public class Proveedor {
 
     private int idProveedor;

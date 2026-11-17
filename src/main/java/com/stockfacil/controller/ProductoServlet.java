@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/productos")
+/*** @author natha*/
 public class ProductoServlet extends HttpServlet {
 
     private final ProductoDAO dao = new ProductoDAO();

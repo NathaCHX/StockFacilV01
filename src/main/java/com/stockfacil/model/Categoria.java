@@ -1,9 +1,6 @@
 package com.stockfacil.model;
 
-/**
- *
- * @author natha
- */
+/*** @author natha*/
 public class Categoria {
 
     private int idCategoria;

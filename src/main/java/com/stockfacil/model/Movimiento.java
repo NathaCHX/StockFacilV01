@@ -2,10 +2,7 @@ package com.stockfacil.model;
 
 import java.time.LocalDateTime;
 
-/**
- *
- * @author natha
- */
+/*** @author natha*/
 public class Movimiento {
 
     private int idMovimiento;

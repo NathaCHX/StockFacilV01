@@ -4,6 +4,7 @@ import com.stockfacil.dao.MovimientoDAO;
 import com.stockfacil.dao.ProductoDAO;
 import com.stockfacil.dao.StockInsuficienteException;
 import com.stockfacil.model.Movimiento;
+import com.stockfacil.model.Usuario;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +22,7 @@ import java.util.List;
  */
 @WebServlet("/movimientos")
 
+/*** @author natha*/
 public class MovimientoServlet extends HttpServlet {
 
     private final MovimientoDAO dao = new MovimientoDAO();
@@ -65,7 +67,8 @@ public class MovimientoServlet extends HttpServlet {
 
         // Semana 9: el usuario es fijo (1 = admin).
         // En la semana 10 se toma del usuario que inició sesión.
-        m.setIdUsuario(1);
+        Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
+        m.setIdUsuario(usuario.getIdUsuario());
 
         if (m.getCantidad() <= 0) {
             errores.add("La cantidad debe ser mayor que cero.");

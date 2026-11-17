@@ -1,9 +1,6 @@
 package com.stockfacil.dao;
 
-/**
- *
- * @author natha
- */
+/*** @author natha*/
 public class StockInsuficienteException extends Exception {
 
     public StockInsuficienteException(String mensaje) {

@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/*** @author natha*/
 public class ProductoDAO {
 
     private static final String SELECT_BASE

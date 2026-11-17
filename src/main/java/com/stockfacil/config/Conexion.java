@@ -8,6 +8,7 @@ import java.sql.SQLException;
  * Semana 6. Abre conexiones a la base stockfacil.
  * Cambie USUARIO y CLAVE por los de su MySQL.
  */
+/*** @author natha*/
 public class Conexion {
 
     private static final String URL = "jdbc:mysql://localhost:3306/stockfacil";

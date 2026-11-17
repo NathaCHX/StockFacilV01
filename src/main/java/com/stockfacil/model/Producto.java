@@ -2,9 +2,7 @@ package com.stockfacil.model;
 
 import java.math.BigDecimal;
 
-/**
- * @author natha
- */
+/*** @author natha*/
 public class Producto {
 
     private int idProducto;
