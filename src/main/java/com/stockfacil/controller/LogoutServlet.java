@@ -9,9 +9,7 @@ import java.io.IOException;
 /** Semana 10. Cierra la sesión y vuelve al login. */
 @WebServlet("/logout")
 
-/**
- * * @author natha
- */
+/*** @author natha*/
 public class LogoutServlet extends HttpServlet {
 
     @Override

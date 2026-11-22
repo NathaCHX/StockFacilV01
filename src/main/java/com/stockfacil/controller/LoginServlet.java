@@ -16,6 +16,7 @@ import java.sql.SQLException;
 /*** @author natha*/
 /** Semana 10. GET muestra el formulario; POST revisa usuario y contraseña. */
 @WebServlet("/login")
+/*** @author natha*/
 public class LoginServlet extends HttpServlet {
 
     private final UsuarioDAO dao = new UsuarioDAO();

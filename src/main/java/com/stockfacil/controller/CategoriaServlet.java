@@ -20,6 +20,7 @@ import java.util.List;
  * -> desactiva
  */
 @WebServlet("/categorias")
+/*** @author natha*/
 public class CategoriaServlet extends HttpServlet {
 
     private final CategoriaDAO dao = new CategoriaDAO();

@@ -74,8 +74,8 @@ public class MovimientoServlet extends HttpServlet {
             errores.add("La cantidad debe ser mayor que cero.");
         }
 
-        if (!"ENTRADA".equals(m.getTipo()) && !"SALIDA".equals(m.getTipo())) {
-            errores.add("Seleccione si es entrada o salida.");
+        if (!"ENTRADA".equals(m.getTipo()) && !"SALIDA".equals(m.getTipo()) && !"AJUSTE".equals(m.getTipo())) {
+            errores.add("Seleccione si es entrada, salida o ajuste.");
 
         }
 

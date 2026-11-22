@@ -35,7 +35,7 @@ public class MovimientoDAO {
     public void registrar(Movimiento m) throws SQLException, StockInsuficienteException {
         Connection con = Conexion.obtener();
         try {
-            con.setAutoCommit(false);                       // 1. Empieza la transacción
+            con.setAutoCommit(false);// 1. Empieza la transacción
             // 2. Leer el stock actual (FOR UPDATE bloquea la fila hasta el commit)
             int stockActual;
             try (PreparedStatement ps = con.prepareStatement(
@@ -55,6 +55,10 @@ public class MovimientoDAO {
             if (nuevoStock < 0) {
                 throw new StockInsuficienteException(
                         "Stock insuficiente: hay " + stockActual + " unidades y se quieren sacar " + m.getCantidad() + ".");
+            }
+            // 3.5 se agrega el nuevo tipo de movimiento Ajuste
+            if ("AJUSTE".equals(m.getTipo())) {
+                nuevoStock = m.getCantidad();
             }
             // 4. Guardar el movimiento
             try (PreparedStatement ps = con.prepareStatement(

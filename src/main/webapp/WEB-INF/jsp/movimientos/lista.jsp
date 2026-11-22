@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../comun/encabezado.jsp" %>
 
-<h1 class="h3 mb-3">Entradas y salidas</h1>
+<h1 class="h3 mb-3">Movimientos de Invetario</h1>
 
 <c:if test="${param.ok == '1'}">
     <div class="alert alert-success">Movimiento registrado y stock actualizado.</div>
@@ -37,13 +37,13 @@
             <select class="form-select" name="tipo">
                 <option value="ENTRADA" ${movimiento.tipo == 'ENTRADA' ? 'selected' : ''}>Entrada</option>
                 <option value="SALIDA" ${movimiento.tipo == 'SALIDA' ? 'selected' : ''}>Salida</option>
+                <option value="AJUSTE" ${movimiento.tipo == 'AJUSTE' ? 'selected' : ''}>Ajuste</option>
             </select>
         </div>
         <div class="col-md-2">
             <label class="form-label">Cantidad</label>
-            <input class="form-control" name="cantidad" type="number" min="1" required
-
-                   value="${movimiento.cantidad > 0 ? movimiento.cantidad : ''}">
+            <input class="form-control" name="cantidad" type="number" min="0" required
+                   value="${movimiento.cantidad >= 0 ? movimiento.cantidad : ''}">
         </div>
         <div class="col-md-3">
             <label class="form-label">Nota</label>
@@ -67,7 +67,7 @@
             <tr>
                 <td>${m.fechaTexto}</td>
                 <td><c:out value="${m.nombreProducto}"/></td>
-                <td><span class="badge ${m.tipo == 'ENTRADA' ? 'text-bg-success' : 'text-bg-secondary'}">${m.tipo}</span></td>
+                <td><span class="badge ${m.tipo == 'ENTRADA' ? 'text-bg-success' : (m.tipo == 'SALIDA' ? 'text-bg-secondary' : 'text-bg-info')}">${m.tipo}</span></td>
                 <td class="text-end">${m.cantidad}</td>
                 <td><c:out value="${m.nombreUsuario}"/></td>
                 <td><c:out value="${m.nota}"/></td>
