@@ -3,7 +3,9 @@
 <%@ include file="../comun/encabezado.jsp" %>
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="h3">Productos</h1>
-    <a class="btn btn-primary" href="productos?accion=nuevo">Nuevo producto</a>
+    <c:if test="${sessionScope.usuario.rol == 'ADMIN'}">
+        <a class="btn btn-primary" href="productos?accion=nuevo">Nuevo producto</a>
+    </c:if>
 </div>
 <table class="table table-striped bg-white">
     <thead>
@@ -20,17 +22,19 @@
                 <td class="text-end">${p.stock} <c:if test="${p.stockBajo}"><span class="badge text-bg-warning">bajo</span></c:if></td>
                 <td>${p.activo ? 'Activo' : 'Inactivo'}</td>
                 <td class="text-end">
-                    <a class="btn btn-sm btn-outline-secondary"
+                    <c:if test="${sessionScope.usuario.rol == 'ADMIN'}">
+                        <a class="btn btn-sm btn-outline-secondary"
 
-                       href="productos?accion=editar&id=${p.idProducto}">Editar</a>
-                    <c:if test="${p.activo}">
-                        <form method="post" action="productos" class="d-inline"
+                           href="productos?accion=editar&id=${p.idProducto}">Editar</a>
+                        <c:if test="${p.activo}">
+                            <form method="post" action="productos" class="d-inline"
 
-                              onsubmit="return confirm('¿Desactivar este producto?')">
-                            <input type="hidden" name="accion" value="desactivar">
-                            <input type="hidden" name="id" value="${p.idProducto}">
-                            <button class="btn btn-sm btn-outline-danger">Desactivar</button>
-                        </form>
+                                  onsubmit="return confirm('¿Desactivar este producto?')">
+                                <input type="hidden" name="accion" value="desactivar">
+                                <input type="hidden" name="id" value="${p.idProducto}">
+                                <button class="btn btn-sm btn-outline-danger">Desactivar</button>
+                            </form>
+                        </c:if>
                     </c:if>
                 </td>
             </tr>

@@ -10,7 +10,9 @@
 <%@ include file="../comun/encabezado.jsp" %>
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="h3">Categorías</h1>
-    <a class="btn btn-primary" href="categorias?accion=nuevo">Nueva categoría</a>
+    <c:if test="${sessionScope.usuario.rol == 'ADMIN'}">
+          <a class="btn btn-primary" href="categorias?accion=nuevo">Nueva categoría</a>
+    </c:if>
 </div>
 <table class="table table-striped bg-white">
     <form method="get" action="categorias" class="d-flex gap-2 mb-3" style="max-width: 480px">
@@ -29,15 +31,17 @@
                 <td><c:out value="${cat.descripcion}"/></td>
                 <td>${cat.activo ? 'Activa' : 'Inactiva'}</td>
                 <td class="text-end">
-                    <a class="btn btn-sm btn-outline-secondary"
-                       href="categorias?accion=editar&id=${cat.idCategoria}">Editar</a>
-                    <c:if test="${cat.activo}">
-                        <form method="post" action="categorias" class="d-inline"
-                              onsubmit="return confirm('¿Desactivar esta categoría?')">
-                            <input type="hidden" name="accion" value="desactivar">
-                            <input type="hidden" name="id" value="${cat.idCategoria}">
-                            <button class="btn btn-sm btn-outline-danger">Desactivar</button>
-                        </form>
+                    <c:if test="${sessionScope.usuario.rol == 'ADMIN'}">
+                        <a class="btn btn-sm btn-outline-secondary"
+                           href="categorias?accion=editar&id=${cat.idCategoria}">Editar</a>
+                        <c:if test="${cat.activo}">
+                            <form method="post" action="categorias" class="d-inline"
+                                  onsubmit="return confirm('¿Desactivar esta categoría?')">
+                                <input type="hidden" name="accion" value="desactivar">
+                                <input type="hidden" name="id" value="${cat.idCategoria}">
+                                <button class="btn btn-sm btn-outline-danger">Desactivar</button>
+                            </form>
+                        </c:if>
                     </c:if>
                 </td>
             </tr>

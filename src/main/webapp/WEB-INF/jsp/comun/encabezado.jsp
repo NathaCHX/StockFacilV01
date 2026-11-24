@@ -19,6 +19,9 @@
                         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/proveedores">Proveedores</a></li>
                         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/productos">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/movimientos">Movimientos</a></li>
+                            <c:if test="${sessionScope.usuario.rol == 'ADMIN'}">
+                            <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/usuarios">Usuarios</a></li>
+                            </c:if>
                     </ul>
                     <span class="navbar-text me-3">
                         <c:out value="${sessionScope.usuario.nombre}"/> (<c:out value="${sessionScope.usuario.rol}"/>)

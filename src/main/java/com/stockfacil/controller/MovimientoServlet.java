@@ -21,7 +21,6 @@ import java.util.List;
  * Semana 9. Registrar entradas y salidas; la lista muestra los últimos 30.
  */
 @WebServlet("/movimientos")
-
 /*** @author natha*/
 public class MovimientoServlet extends HttpServlet {
 
